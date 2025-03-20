@@ -1,0 +1,389 @@
+12:58:21,846 graphrag.config.read_dotenv INFO Loading pipeline .env file
+12:58:21,852 graphrag.index.cli INFO using default configuration: {
+    "llm": {
+        "api_key": "REDACTED, length 6",
+        "type": "openai_chat",
+        "model": "qwen2:latest",
+        "max_tokens": 2000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "http://localhost:11434/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "./",
+    "reporting": {
+        "type": "file",
+        "base_dir": "inputs/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "inputs/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_embedding",
+            "model": "nomic-embed-text:latest",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 400,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_chat",
+            "model": "qwen2:latest",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "paper_title",
+            "author",
+            "journal",
+            "publication_year",
+            "abstract",
+            "venue",
+            "keyword"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_chat",
+            "model": "qwen2:latest",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_chat",
+            "model": "qwen2:latest",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_chat",
+            "model": "qwen2:latest",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": true,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+12:58:21,853 graphrag.index.create_pipeline_config INFO skipping workflows 
+12:58:21,856 graphrag.index.run INFO Running pipeline
+12:58:21,856 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at inputs/artifacts
+12:58:21,856 graphrag.index.input.load_input INFO loading input from root_dir=input
+12:58:21,856 graphrag.index.input.load_input INFO using file storage for input
+12:58:21,858 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+12:58:21,858 graphrag.index.input.text INFO found text files from input, found [('1.txt', {}), ('.ipynb_checkpoints/1-checkpoint.txt', {})]
+12:58:21,859 graphrag.index.input.text INFO Found 2 files, loading 2
+12:58:21,861 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_final_covariates', 'create_summarized_entities', 'join_text_units_to_covariate_ids', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+12:58:21,861 graphrag.index.run INFO Final # of rows loaded: 2
+12:58:22,37 graphrag.index.run INFO Running workflow: create_base_text_units...
+12:58:22,38 graphrag.index.run INFO dependencies for create_base_text_units: []
+12:58:22,41 datashaper.workflow.workflow INFO executing verb orderby
+12:58:22,44 datashaper.workflow.workflow INFO executing verb zip
+12:58:22,47 datashaper.workflow.workflow INFO executing verb aggregate_override
+12:58:22,52 datashaper.workflow.workflow INFO executing verb chunk
+12:58:22,241 datashaper.workflow.workflow INFO executing verb select
+12:58:22,245 datashaper.workflow.workflow INFO executing verb unroll
+12:58:22,250 datashaper.workflow.workflow INFO executing verb rename
+12:58:22,253 datashaper.workflow.workflow INFO executing verb genid
+12:58:22,258 datashaper.workflow.workflow INFO executing verb unzip
+12:58:22,262 datashaper.workflow.workflow INFO executing verb copy
+12:58:22,266 datashaper.workflow.workflow INFO executing verb filter
+12:58:22,276 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+12:58:22,498 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+12:58:22,498 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+12:58:22,498 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+12:58:22,511 datashaper.workflow.workflow INFO executing verb entity_extract
+12:58:22,515 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://localhost:11434/v1
+12:58:22,538 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for qwen2:latest: TPM=0, RPM=0
+12:58:22,538 graphrag.index.llm.load_llm INFO create concurrency limiter for qwen2:latest: 25
+12:58:22,590 datashaper.workflow.workflow INFO executing verb merge_graphs
+12:58:22,595 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+12:58:22,778 graphrag.index.run INFO Running workflow: create_final_covariates...
+12:58:22,778 graphrag.index.run INFO dependencies for create_final_covariates: ['create_base_text_units']
+12:58:22,778 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+12:58:22,791 datashaper.workflow.workflow INFO executing verb extract_covariates
+12:58:22,837 datashaper.workflow.workflow INFO executing verb window
+12:58:22,843 datashaper.workflow.workflow INFO executing verb genid
+12:58:22,855 datashaper.workflow.workflow INFO executing verb convert
+12:58:22,867 datashaper.workflow.workflow INFO executing verb rename
+12:58:22,873 datashaper.workflow.workflow INFO executing verb select
+12:58:22,875 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_covariates.parquet
+12:58:23,95 graphrag.index.run INFO Running workflow: create_summarized_entities...
+12:58:23,95 graphrag.index.run INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+12:58:23,95 graphrag.index.run INFO read table from storage: create_base_extracted_entities.parquet
+12:58:23,111 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+12:58:23,112 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+12:58:23,305 graphrag.index.run INFO Running workflow: join_text_units_to_covariate_ids...
+12:58:23,305 graphrag.index.run INFO dependencies for join_text_units_to_covariate_ids: ['create_final_covariates']
+12:58:23,305 graphrag.index.run INFO read table from storage: create_final_covariates.parquet
+12:58:23,328 datashaper.workflow.workflow INFO executing verb select
+12:58:23,336 datashaper.workflow.workflow INFO executing verb aggregate_override
+12:58:23,340 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table join_text_units_to_covariate_ids.parquet
+12:58:23,551 graphrag.index.run INFO Running workflow: create_base_entity_graph...
+12:58:23,552 graphrag.index.run INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+12:58:23,552 graphrag.index.run INFO read table from storage: create_summarized_entities.parquet
+12:58:23,569 datashaper.workflow.workflow INFO executing verb cluster_graph
+12:58:23,570 graphrag.index.verbs.graph.clustering.cluster_graph WARNING Graph has no nodes
+12:58:23,572 datashaper.workflow.workflow ERROR Error executing verb "cluster_graph" in create_base_entity_graph: Columns must be same length as key
+Traceback (most recent call last):
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/datashaper/workflow/workflow.py", line 410, in _execute_verb
+    result = node.verb.func(**verb_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/graphrag/index/verbs/graph/clustering/cluster_graph.py", line 102, in cluster_graph
+    output_df[[level_to, to]] = pd.DataFrame(
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/pandas/core/frame.py", line 4299, in __setitem__
+    self._setitem_array(key, value)
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/pandas/core/frame.py", line 4341, in _setitem_array
+    check_key_length(self.columns, key, value)
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/pandas/core/indexers/utils.py", line 390, in check_key_length
+    raise ValueError("Columns must be same length as key")
+ValueError: Columns must be same length as key
+12:58:23,575 graphrag.index.reporting.file_workflow_callbacks INFO Error executing verb "cluster_graph" in create_base_entity_graph: Columns must be same length as key details=None
+12:58:23,575 graphrag.index.run ERROR error running workflow create_base_entity_graph
+Traceback (most recent call last):
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/graphrag/index/run.py", line 325, in run_pipeline
+    result = await workflow.run(context, callbacks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/datashaper/workflow/workflow.py", line 369, in run
+    timing = await self._execute_verb(node, context, callbacks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/datashaper/workflow/workflow.py", line 410, in _execute_verb
+    result = node.verb.func(**verb_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/graphrag/index/verbs/graph/clustering/cluster_graph.py", line 102, in cluster_graph
+    output_df[[level_to, to]] = pd.DataFrame(
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/pandas/core/frame.py", line 4299, in __setitem__
+    self._setitem_array(key, value)
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/pandas/core/frame.py", line 4341, in _setitem_array
+    check_key_length(self.columns, key, value)
+  File "/home/jovyan/bishe2/lib/python3.11/site-packages/pandas/core/indexers/utils.py", line 390, in check_key_length
+    raise ValueError("Columns must be same length as key")
+ValueError: Columns must be same length as key
+12:58:23,576 graphrag.index.reporting.file_workflow_callbacks INFO Error running pipeline! details=None

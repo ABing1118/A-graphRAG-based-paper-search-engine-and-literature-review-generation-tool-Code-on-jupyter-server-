@@ -1,0 +1,496 @@
+15:00:13,389 graphrag.config.read_dotenv INFO Loading pipeline .env file
+15:00:13,395 graphrag.index.cli INFO using default configuration: {
+    "llm": {
+        "api_key": "REDACTED, length 6",
+        "type": "openai_chat",
+        "model": "qwen2.5:latest",
+        "max_tokens": 2000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "http://localhost:11434/v1",
+        "api_version": null,
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": null,
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "./",
+    "reporting": {
+        "type": "file",
+        "base_dir": "inputs/reports",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "inputs/artifacts",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_embedding",
+            "model": "nomic-embed-text:latest",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_chat",
+            "model": "qwen2.5:latest",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_chat",
+            "model": "qwen2.5:latest",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_chat",
+            "model": "qwen2.5:latest",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "REDACTED, length 6",
+            "type": "openai_chat",
+            "model": "qwen2.5:latest",
+            "max_tokens": 2000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "http://localhost:11434/v1",
+            "api_version": null,
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": null,
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": true,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+15:00:13,396 graphrag.index.create_pipeline_config INFO skipping workflows 
+15:00:13,399 graphrag.index.run INFO Running pipeline
+15:00:13,399 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at inputs/artifacts
+15:00:13,399 graphrag.index.input.load_input INFO loading input from root_dir=input
+15:00:13,399 graphrag.index.input.load_input INFO using file storage for input
+15:00:13,401 graphrag.index.storage.file_pipeline_storage INFO search input for files matching .*\.txt$
+15:00:13,401 graphrag.index.input.text INFO found text files from input, found [('1.txt', {}), ('.ipynb_checkpoints/1-checkpoint.txt', {})]
+15:00:13,403 graphrag.index.input.text INFO Found 2 files, loading 2
+15:00:13,405 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_final_covariates', 'create_summarized_entities', 'join_text_units_to_covariate_ids', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'join_text_units_to_entity_ids', 'create_final_relationships', 'join_text_units_to_relationship_ids', 'create_final_community_reports', 'create_final_text_units', 'create_base_documents', 'create_final_documents']
+15:00:13,405 graphrag.index.run INFO Final # of rows loaded: 2
+15:00:13,592 graphrag.index.run INFO Running workflow: create_base_text_units...
+15:00:13,592 graphrag.index.run INFO dependencies for create_base_text_units: []
+15:00:13,596 datashaper.workflow.workflow INFO executing verb orderby
+15:00:13,599 datashaper.workflow.workflow INFO executing verb zip
+15:00:13,602 datashaper.workflow.workflow INFO executing verb aggregate_override
+15:00:13,607 datashaper.workflow.workflow INFO executing verb chunk
+15:00:13,814 datashaper.workflow.workflow INFO executing verb select
+15:00:13,817 datashaper.workflow.workflow INFO executing verb unroll
+15:00:13,823 datashaper.workflow.workflow INFO executing verb rename
+15:00:13,826 datashaper.workflow.workflow INFO executing verb genid
+15:00:13,832 datashaper.workflow.workflow INFO executing verb unzip
+15:00:13,836 datashaper.workflow.workflow INFO executing verb copy
+15:00:13,840 datashaper.workflow.workflow INFO executing verb filter
+15:00:13,851 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+15:00:14,98 graphrag.index.run INFO Running workflow: create_base_extracted_entities...
+15:00:14,98 graphrag.index.run INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+15:00:14,98 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+15:00:14,112 datashaper.workflow.workflow INFO executing verb entity_extract
+15:00:14,115 graphrag.llm.openai.create_openai_client INFO Creating OpenAI client base_url=http://localhost:11434/v1
+15:00:14,138 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for qwen2.5:latest: TPM=0, RPM=0
+15:00:14,138 graphrag.index.llm.load_llm INFO create concurrency limiter for qwen2.5:latest: 25
+15:00:28,426 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:00:28,431 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 14.194000001996756. input_tokens=4490, output_tokens=432
+15:00:33,187 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:00:33,188 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 19.028000000864267. input_tokens=4490, output_tokens=595
+15:00:41,344 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:00:41,345 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 27.13399999961257. input_tokens=4488, output_tokens=876
+15:00:42,598 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:00:42,599 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 28.35700000077486. input_tokens=4491, output_tokens=447
+15:00:44,19 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:00:44,20 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 29.83999999985099. input_tokens=4490, output_tokens=912
+15:00:53,827 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:00:53,828 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 39.65300000086427. input_tokens=4490, output_tokens=660
+15:00:58,867 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:00:58,869 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 44.70399999991059. input_tokens=4490, output_tokens=544
+15:01:00,591 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:00,592 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 46.319000001996756. input_tokens=4490, output_tokens=548
+15:01:06,784 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:06,785 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 52.51799999922514. input_tokens=4490, output_tokens=420
+15:01:15,450 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:15,452 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 61.23600000143051. input_tokens=4490, output_tokens=557
+15:01:21,290 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:21,291 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 67.10000000149012. input_tokens=4488, output_tokens=718
+15:01:23,134 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:23,135 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 68.9349999986589. input_tokens=4490, output_tokens=540
+15:01:26,913 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:26,915 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 72.65799999982119. input_tokens=4490, output_tokens=350
+15:01:37,287 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:37,288 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 83.00999999791384. input_tokens=4490, output_tokens=476
+15:01:42,121 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:42,123 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 87.87000000104308. input_tokens=4489, output_tokens=1863
+15:01:46,485 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:46,486 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 92.31600000336766. input_tokens=4489, output_tokens=649
+15:01:54,80 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:54,81 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 99.85400000214577. input_tokens=4490, output_tokens=548
+15:01:59,123 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:01:59,125 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 104.91899999976158. input_tokens=4489, output_tokens=565
+15:02:02,398 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:02,400 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 108.24799999967217. input_tokens=4490, output_tokens=524
+15:02:06,350 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:06,352 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 112.13099999725819. input_tokens=4490, output_tokens=386
+15:02:12,400 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:12,401 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 118.15399999916553. input_tokens=4490, output_tokens=426
+15:02:15,106 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:15,107 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 120.92300000041723. input_tokens=4490, output_tokens=387
+15:02:20,70 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:20,71 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 111.63899999856949. input_tokens=4129, output_tokens=157
+15:02:21,395 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:21,395 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 108.20700000226498. input_tokens=34, output_tokens=43
+15:02:22,115 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:22,117 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 127.85500000044703. input_tokens=4491, output_tokens=1896
+15:02:23,655 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:23,656 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 101.0570000000298. input_tokens=34, output_tokens=43
+15:02:24,782 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:24,783 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 100.76199999824166. input_tokens=34, output_tokens=39
+15:02:29,191 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:29,192 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 107.84699999913573. input_tokens=34, output_tokens=271
+15:02:31,259 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:31,260 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 137.06400000303984. input_tokens=4489, output_tokens=623
+15:02:32,827 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:32,828 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 98.99900000169873. input_tokens=34, output_tokens=292
+15:02:33,668 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:33,669 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 93.07699999958277. input_tokens=34, output_tokens=77
+15:02:35,70 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:35,71 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 79.61799999698997. input_tokens=34, output_tokens=46
+15:02:36,718 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:36,719 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 75.42799999937415. input_tokens=34, output_tokens=52
+15:02:38,881 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:38,882 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 75.74599999934435. input_tokens=34, output_tokens=69
+15:02:40,602 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:40,603 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 73.68799999728799. input_tokens=34, output_tokens=55
+15:02:41,922 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:41,923 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 64.63399999961257. input_tokens=34, output_tokens=44
+15:02:44,637 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:44,638 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 105.76500000059605. input_tokens=34, output_tokens=520
+15:02:46,104 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:46,105 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 59.61899999901652. input_tokens=34, output_tokens=52
+15:02:48,632 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:48,633 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 54.552000001072884. input_tokens=34, output_tokens=92
+15:02:48,920 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:48,921 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 102.13500000163913. input_tokens=34, output_tokens=557
+15:02:50,335 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:50,336 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 47.934999998658895. input_tokens=34, output_tokens=48
+15:02:52,902 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:52,903 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 46.55000000074506. input_tokens=34, output_tokens=97
+15:02:55,199 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:55,200 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 42.79800000041723. input_tokens=34, output_tokens=89
+15:02:56,705 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:56,706 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 41.59899999946356. input_tokens=34, output_tokens=54
+15:02:59,979 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:02:59,980 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 60.855000000447035. input_tokens=34, output_tokens=427
+15:03:01,85 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:01,86 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 39.689999997615814. input_tokens=34, output_tokens=39
+15:03:02,461 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:02,463 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 80.33899999782443. input_tokens=34, output_tokens=753
+15:03:02,482 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:02,483 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 40.36500000208616. input_tokens=34, output_tokens=53
+15:03:02,850 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:02,853 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 168.6199999973178. input_tokens=4490, output_tokens=1834
+15:03:03,638 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:03,639 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 32.37800000235438. input_tokens=34, output_tokens=42
+15:03:04,9 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:04,10 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 1.1560000032186508. input_tokens=34, output_tokens=52
+15:03:08,358 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:08,360 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 48.287999998778105. input_tokens=34, output_tokens=682
+15:03:08,371 datashaper.workflow.workflow INFO executing verb merge_graphs
+15:03:08,376 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+15:03:08,583 graphrag.index.run INFO Running workflow: create_final_covariates...
+15:03:08,583 graphrag.index.run INFO dependencies for create_final_covariates: ['create_base_text_units']
+15:03:08,584 graphrag.index.run INFO read table from storage: create_base_text_units.parquet
+15:03:08,597 datashaper.workflow.workflow INFO executing verb extract_covariates
+15:03:11,638 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:11,639 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 3.0299999974668026. input_tokens=2314, output_tokens=10
+15:03:14,536 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:14,537 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 5.918999999761581. input_tokens=2315, output_tokens=96
+15:03:22,594 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:22,595 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 13.98200000077486. input_tokens=2315, output_tokens=398
+15:03:23,430 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:23,431 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 14.80400000140071. input_tokens=2314, output_tokens=406
+15:03:30,429 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:30,431 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 21.80800000205636. input_tokens=2314, output_tokens=620
+15:03:31,438 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:31,438 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 22.743999999016523. input_tokens=2315, output_tokens=10
+15:03:35,270 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:35,271 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 26.635999999940395. input_tokens=2314, output_tokens=120
+15:03:40,249 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:40,251 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 31.598999999463558. input_tokens=2314, output_tokens=442
+15:03:43,226 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:43,228 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 34.56599999964237. input_tokens=2314, output_tokens=584
+15:03:50,907 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:50,909 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 42.22699999809265. input_tokens=2315, output_tokens=349
+15:03:57,907 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:03:57,909 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 49.264999996870756. input_tokens=2313, output_tokens=713
+15:04:00,669 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:00,670 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 51.992999996989965. input_tokens=2315, output_tokens=69
+15:04:04,621 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:04,622 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 55.91000000014901. input_tokens=2314, output_tokens=705
+15:04:05,977 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:05,979 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 57.305999998003244. input_tokens=2315, output_tokens=461
+15:04:11,513 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:11,514 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 62.85799999907613. input_tokens=2314, output_tokens=316
+15:04:14,722 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:14,723 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 66.09200000017881. input_tokens=2314, output_tokens=86
+15:04:16,303 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:16,305 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 67.63500000163913. input_tokens=2314, output_tokens=1978
+15:04:22,121 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:22,122 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 73.45700000226498. input_tokens=2314, output_tokens=194
+15:04:23,327 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:23,328 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 74.62599999830127. input_tokens=2314, output_tokens=249
+15:04:26,687 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:26,688 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 77.99799999967217. input_tokens=2313, output_tokens=117
+15:04:29,661 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:29,662 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 80.96399999782443. input_tokens=2315, output_tokens=180
+15:04:34,744 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:34,746 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 86.09800000116229. input_tokens=2315, output_tokens=767
+15:04:38,770 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:38,771 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 87.13199999928474. input_tokens=1953, output_tokens=122
+15:04:40,67 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:40,68 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 85.53099999949336. input_tokens=19, output_tokens=47
+15:04:40,403 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:40,405 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 91.69700000062585. input_tokens=2315, output_tokens=440
+15:04:44,17 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:44,18 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 95.37900000065565. input_tokens=2313, output_tokens=485
+15:04:44,18 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:44,19 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 81.4239999987185. input_tokens=19, output_tokens=148
+15:04:56,952 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:56,953 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 85.51500000059605. input_tokens=19, output_tokens=473
+15:04:58,117 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:04:58,118 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 82.84600000083447. input_tokens=19, output_tokens=41
+15:05:01,45 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:05:01,46 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 80.79499999806285. input_tokens=19, output_tokens=107
+15:05:03,158 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:05:03,160 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 99.72800000011921. input_tokens=19, output_tokens=857
+15:05:04,319 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:05:04,320 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 93.8830000013113. input_tokens=19, output_tokens=747
+15:05:04,676 httpx INFO HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+15:05:04,678 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 115.99100000038743. input_tokens=2315, output_tokens=1876

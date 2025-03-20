@@ -1,0 +1,100 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.
+Next, report all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in The two documents you've provided cover distinct areas of research in computer science and information retrieval, each with its own set of methodologies and applications.
+
+**Document 1**: This document focuses on the development of a technique called HybridRAG (Hybrid Retrieval and Generation) for improving question answering systems. The technique combines elements from vector databases and knowledge graphs to enhance both the retrieval accuracy and answer generation quality in question-answering tasks, particularly within financial domains. It demonstrates that by integrating context from both vector databases and knowledge graphs, it outperforms traditional methods like VectorRAG (which relies solely on vector databases) and GraphRAG (which uses knowledge graphs alone). The authors show improvements across retrieval accuracy and answer generation metrics.
+
+**Document 2**: This document is about the Computer Analysis of Images and Patterns conference held in Versailles, France. It covers a range of topics related to image processing, computer vision, pattern recognition, and their applications. However, since there's no specific abstract provided for this document, it's difficult to summarize its content precisely without additional context or details on individual papers presented at the conference.
+
+In summary, Document 1 is about advancing question answering systems through a novel technique that combines vector databases and knowledge graphs, while Document 2 encompasses a broader spectrum of research topics related to image analysis and pattern recognition. as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into The two documents you've provided cover distinct areas of research in computer science and information retrieval, each with its own set of methodologies and applications.
+
+**Document 1**: This document focuses on the development of a technique called HybridRAG (Hybrid Retrieval and Generation) for improving question answering systems. The technique combines elements from vector databases and knowledge graphs to enhance both the retrieval accuracy and answer generation quality in question-answering tasks, particularly within financial domains. It demonstrates that by integrating context from both vector databases and knowledge graphs, it outperforms traditional methods like VectorRAG (which relies solely on vector databases) and GraphRAG (which uses knowledge graphs alone). The authors show improvements across retrieval accuracy and answer generation metrics.
+
+**Document 2**: This document is about the Computer Analysis of Images and Patterns conference held in Versailles, France. It covers a range of topics related to image processing, computer vision, pattern recognition, and their applications. However, since there's no specific abstract provided for this document, it's difficult to summarize its content precisely without additional context or details on individual papers presented at the conference.
+
+In summary, Document 1 is about advancing question answering systems through a novel technique that combines vector databases and knowledge graphs, while Document 2 encompasses a broader spectrum of research topics related to image analysis and pattern recognition., just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+text:
+.- Progressive Sampling for Association Rules Based on Sampling Error Estimation.- CLe Ver: A Feature Subset Selection Technique for Multivariate Time Series.- Covariance and PCA for Categorical Variables.- Integration of Data Warehousing.- ADenTS: An Adaptive Density-Based Tree Structure for Approximating Aggregate Queries over Real Attributes.- Frequent Itemset Mining with Parallel RDBMS.- Knowledge Management.- Using Consensus Susceptibility and Consistency Measures for Inconsistent Knowledge Management.- WLPMiner: Weighted Frequent Pattern Mining with Length-Decreasing Support Constraints.- Machine Learning Methods.- A Framework for Incorporating Class Priors into Discriminative Classification.- Increasing Classification Accuracy by Combining Adaptive Sampling and Convex Pseudo-Data.- Kernels over Relational Algebra Structures.- Adaptive Nonlinear Auto-Associative Modeling Through Manifold Learning.- Maximizing Tree Diversity by Building Complete-Random Decision Trees.- SETRED: Self-training with Editing.- Adjusting Mixture Weights of Gaussian Mixture Model via Regularized
+------------------------
+output:
+("text", "Progressive Sampling for Association Rules Based on Sampling Error Estimation.")
+("text", "CLe Ver: A Feature Subset Selection Technique for Multivariate Time Series.")
+("text", "Covariance and PCA for Categorical Variables.")
+("text", "Integration of Data Warehousing.")
+("text", "ADenTS: An Adaptive Density-Based Tree Structure for Approximating Aggregate Queries over Real Attributes.")
+("text", "Frequent Itemset Mining with Parallel RDBMS.")
+("text", "Knowledge Management.")
+("text", "Using Consensus Susceptibility and Consistency Measures for Inconsistent Knowledge Management.")
+("text", "WLPMiner: Weighted Frequent Pattern Mining with Length-Decreasing Support Constraints.")
+("text", "Machine Learning Methods.")
+("text", "A Framework for Incorporating Class Priors into Discriminative Classification.")
+("text", "Increasing Classification Accuracy by Combining Adaptive Sampling and Convex Pseudo-Data.")
+("text", "Kernels over Relational Algebra Structures.")
+("text", "Adaptive Nonlinear Auto-Associative Modeling Through Manifold Learning.")
+("text", "Maximizing Tree Diversity by Building Complete-Random Decision Trees.")
+("text", "SETRED: Self-training with Editing.")
+("text", "Adjusting Mixture Weights of Gaussian Mixture Model via Regularized")
+#############################
+
+
+Example 2:
+
+text:
+ustering Algorithm.- Improved Self-splitting Competitive Learning Algorithm.- Speeding-Up Hierarchical Agglomerative Clustering in Presence of Expensive Metrics.- Dynamic Cluster Formation Using Level Set Methods.- A Vector Field Visualization Technique for Self-organizing Maps.- Visualization of Cluster Changes by Comparing Self-organizing Maps.- An Incremental Data Stream Clustering Algorithm Based on Dense Units Detection.- Visual Interactive Evolutionary Algorithm for High Dimensional Data Clustering and Outlier Detection.- Approximated Clustering of Distributed High-Dimensional Data.- Dynamic Data Mining.- Improvements of IncSpan: Incremental Mining of Sequential Patterns in Large Database.- Efficient Sampling: Application to Image Data.- Cluster-Based Rough Set Construction.- Graphic Model Discovery.- Learning Bayesian Networks Structures from Incomplete Data: An Efficient Approach Based on Extended Evolutionary Programming.- Dynamic Fuzzy Clustering for Recommender Systems.- Improving Mining Quality by Exploiting Data Dependency.- High Dimensional Data.- Feature Selection for High Dimensional Face Image Using Self-organizing Maps
+------------------------
+output:
+("relationship"{tuple_delimiter}ustering Algorithm{tuple_delimiter}Improved Self-splitting Competitive Learning Algorithm{tuple_delimiter}The text discusses an improved version of the self-splitting competitive learning algorithm{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Speeding-Up Hierarchical Agglomerative Clustering in Presence of Expensive Metrics{tuple_delimiter}The text focuses on accelerating hierarchical agglomerative clustering when dealing with costly metrics{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Dynamic Cluster Formation Using Level Set Methods{tuple_delimiter}Describes a method for dynamically forming clusters using level set techniques{tuple_delimiter}1)
+("relationship"{tuple_delimiter}A Vector Field Visualization Technique for Self-organizing Maps{tuple_delimiter}Introduces a visualization technique for self-organizing maps based on vector fields{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Visualization of Cluster Changes by Comparing Self-organizing Maps{tuple_delimiter}Explains how to visualize changes in clusters through comparisons with self-organizing maps{tuple_delimiter}1)
+("relationship"{tuple_delimiter}An Incremental Data Stream Clustering Algorithm Based on Dense Units Detection{tuple_delimiter}Presents an algorithm for clustering data streams incrementally using dense units detection{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Visual Interactive Evolutionary Algorithm for High Dimensional Data Clustering and Outlier Detection{tuple_delimiter}Describes a visual interactive evolutionary algorithm for high-dimensional data clustering and outlier detection{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Approximated Clustering of Distributed High-Dimensional Data{tuple_delimiter}Focuses on approximating clustering in distributed, high-dimensional datasets{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Dynamic Data Mining{tuple_delimiter}Discusses dynamic techniques for data mining{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Improvements of IncSpan: Incremental Mining of Sequential Patterns in Large Database{tuple_delimiter}Details enhancements to the IncSpan algorithm for incremental mining of sequential patterns in large databases{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Efficient Sampling: Application to Image Data{tuple_delimiter}Explores efficient sampling techniques specifically applied to image data{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Cluster-Based Rough Set Construction{tuple_delimiter}Involves the use of clustering in rough set theory for construction purposes{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Graphic Model Discovery{tuple_delimiter}Concerns the discovery of graphical models, possibly related to machine learning or data analysis{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Learning Bayesian Networks Structures from Incomplete Data: An Efficient Approach Based on Extended Evolutionary Programming{tuple_delimiter}Describes an efficient method for learning Bayesian network structures from incomplete datasets using extended evolutionary programming{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Dynamic Fuzzy Clustering for Recommender Systems{tuple_delimiter}Involves dynamic fuzzy clustering techniques applied to the development of recommender systems{tuple_delimiter}1)
+("relationship"{tuple_delimiter}Improving Mining Quality by Exploiting Data Dependency{tuple_delimiter}Focuses on enhancing data mining quality through leveraging dependencies within datasets{tuple_delimiter}1)
+("relationship"{tuple_delimiter}High Dimensional Data{tuple_delimiter}Recurrent theme throughout the text, referring to datasets with a large number of features or dimensions{tuple_delimiter}Multiple instances)
+("relationship"{tuple_delimiter}Feature Selection for High Dimensional Face Image Using Self-organizing Maps{tuple_delimiter}Involves feature selection techniques specifically applied to high-dimensional face images using self-organizing maps{tuple_delimiter}1)
+#############################
+
+
+
+-Real Data-
+######################
+text: {input_text}
+######################
+output:
