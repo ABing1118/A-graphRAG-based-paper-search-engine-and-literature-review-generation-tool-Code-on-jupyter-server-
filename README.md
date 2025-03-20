@@ -9,9 +9,10 @@ export PATH=$PATH:$(pwd)/ollama/bin
 ollama start
 ```
 
-```markdown
 # 启动 server.py（Uvicorn 服务）
 # 新建一个终端
+
+```markdown
 cd ~
 conda activate ./bishe2
 cd ragtest2
@@ -19,9 +20,10 @@ cd utils
 uvicorn server:app --host 0.0.0.0 --port 8011
 ```
 
-```markdown
 # 启动 main.py
 # 新建一个终端
+
+```markdown
 cd ~
 conda activate ./bishe2
 cd ragtest2/utils
